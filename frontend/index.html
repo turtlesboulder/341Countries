@@ -6,35 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Links that work</h1>
+    <h1>Link</h1>
     <a href="../api-docs">Swagger</a>
-
-    <h1>Links that don't work</h1>
-    <p>This is a website about Dogs.</p>
-    <div><a href="../countries/"id="getLink">GET</a>
-    <input id="getId" type="text" placeholder="id"></div>
-    <div><a href="../countries">GET ALL</a></div>
-    <div><a>CREATE</a></div>
-    <div><a>UPDATE</a></div>
-    <div><a href="../countries/" id="deleteLink">DELETE</a>
-    <input id="deleteId" type="text" placeholder="id"></div>
 </body>
-<script>
-    console.log("Executing script... ");
-    let get = document.querySelector("#getLink");
-let del = document.querySelector("#deleteLink");
-
-let getId = document.querySelector("#getId");
-let deleteId = document.querySelector("#deleteId");
-
-getId.addEventListener("input", ()=>{
-    get.href = "../countries/"+getId.value;
-})
-
-deleteId.addEventListener("input", ()=>{
-    del.href = "../countries/"+deleteId.value;
-})
-</script>
 <style>
     body{
     margin: 20px;
