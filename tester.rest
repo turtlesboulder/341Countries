@@ -1,0 +1,12 @@
+GET http://localhost:8080/countries
+
+GET http://localhost:8080/cities
+
+GET http://localhost:8080/countries/655ce3a0ee6db343c517dc29
+
+POST http://localhost:8080/cities HTTP/1.1
+content-type: application/json
+{
+    "name": "Bielefeld",
+    "Population": "0"
+}
