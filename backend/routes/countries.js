@@ -3,10 +3,11 @@ const router = app.Router();
 const db = require("../data/mongeese");
 
 const controller = require("../controllers/countriesmongoose")(db.country);
+const {isAuthenticated} = require('../middleware/authenticate');
 
 router.get("/", controller.getAll);
 router.get("/:id", controller.getSingle);
-router.post("/", controller.create
+router.post("/", isAuthenticated, controller.create
 /*
         #swagger.description = "Allowed properties are name, population, area, gdppc, gini, hdi. GDPPC is nominal gross domestic product per capita."
         #swagger.parameters["body"] = {
@@ -22,7 +23,7 @@ router.post("/", controller.create
         }
     */
 );
-router.put("/:id", controller.update
+router.put("/:id", isAuthenticated, controller.update
 /*
         #swagger.description = "Allowed properties are name, population, area, gdppc, gini, hdi. GDPPC is nominal gross domestic product per capita."
         #swagger.parameters["body"] = {
@@ -38,7 +39,7 @@ router.put("/:id", controller.update
         }
     */
 );
-router.delete("/:id", controller.deleteEntry);
+router.delete("/:id", isAuthenticated, controller.deleteEntry);
 
 
 

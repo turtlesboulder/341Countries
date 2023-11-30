@@ -3,10 +3,12 @@ const router = app.Router();
 const db = require("../data/mongeese");
 
 const controller = require("../controllers/countriesmongoose")(db.city);
-//console.log(controller);
+const {isAuthenticated} = require('../middleware/authenticate');
+
+
 router.get("/", controller.getAll);
 router.get("/:id", controller.getSingle);
-router.post("/", controller.create
+router.post("/", isAuthenticated, controller.create
     /*
         #swagger.description = "Allowed properties are name, population, area, country_id, elevation."
         #swagger.parameters["body"] = {
@@ -21,7 +23,7 @@ router.post("/", controller.create
         }
     */
 );
-router.put("/:id", controller.update
+router.put("/:id", isAuthenticated, controller.update
 /*
         #swagger.description = "Allowed properties are name, population, area, country_id, elevation."
         #swagger.parameters["body"] = {
@@ -36,7 +38,7 @@ router.put("/:id", controller.update
         }
     */
 );
-router.delete("/:id", controller.deleteEntry);
+router.delete("/:id", isAuthenticated, controller.deleteEntry);
 
 
 

@@ -6,7 +6,7 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "cse341-countries-fall-2023.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http",
